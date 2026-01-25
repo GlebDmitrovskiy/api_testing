@@ -1,5 +1,3 @@
-from typing import assert_type
-
 from config.base_test import BaseTest
 import pytest
 
