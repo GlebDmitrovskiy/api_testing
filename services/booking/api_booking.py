@@ -25,6 +25,10 @@ class Booking:
         response = requests.get(url=self.endpoints.get_booking(booking_id=booking_id))
         return response
 
+    def get_bookings(self):
+        response = requests.get(url=self.endpoints.get_bookings())
+        return response
+
     def update_booking(self, booking_id: str, **data):
         response = requests.put(url=self.endpoints.update_booking(booking_id),
                                 json=self.payload_booking.update_booking(**data), headers=self.headers.update_headers())
@@ -32,6 +36,13 @@ class Booking:
         return response
 
     def delete_booking(self, booking_id: str):
-        response = requests.delete(url=self.endpoints.delete_booking(booking_id=booking_id), headers=self.headers.delete_headers())
+        response = requests.delete(url=self.endpoints.delete_booking(booking_id=booking_id),
+                                   headers=self.headers.delete_headers())
+
+        return response
+
+    def partial_update_booking(self, booking_id: str, **data):
+        response = requests.patch(url=self.endpoints.update_booking(booking_id),
+                                json=self.payload_booking.partial_update_booking(**data), headers=self.headers.partial_update_headers())
 
         return response

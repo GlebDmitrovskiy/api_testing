@@ -10,12 +10,22 @@ class EndPoints:
         return url
 
     @staticmethod
+    def get_bookings():
+        url = URL + f"/booking/"
+        return url
+
+    @staticmethod
     def post_booking():
         url = URL + "/booking"
         return url
 
     @staticmethod
     def update_booking(booking_id: str):
+        url = URL + f"/booking/{booking_id}"
+        return url
+
+    @staticmethod
+    def partial_update_booking(booking_id: str):
         url = URL + f"/booking/{booking_id}"
         return url
 
